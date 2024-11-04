@@ -34,6 +34,7 @@ return {
         "svelte",
         "lua_ls",
         "emmet_ls",
+        "clangd",
       },
     })
 
@@ -45,6 +46,7 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
+        "clang-format",
       },
     })
   end,

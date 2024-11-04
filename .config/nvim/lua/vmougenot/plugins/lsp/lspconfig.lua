@@ -48,10 +48,10 @@ return {
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
         opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+        keymap.set("n", "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
         opts.desc = "Show line diagnostics"
-        keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+        keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
         opts.desc = "Go to previous diagnostic"
         keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -129,6 +129,21 @@ return {
               },
             },
           },
+        })
+      end,
+      ["clangd"] = function()
+        -- configure svelte server
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              pattern = { "*.c", "*.cpp", "*.l", "*.y" },
+              callback = function(ctx)
+                -- Here use ctx.match instead of ctx.file
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+              end,
+            })
+          end,
         })
       end,
     })
