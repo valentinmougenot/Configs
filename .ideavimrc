@@ -1,0 +1,216 @@
+"" Base Settings
+"" ========================================================
+
+set scrolloff=10
+set relativenumber
+set showmode
+set showcmd
+
+set smartcase
+set incsearch
+set hlsearch
+
+set visualbell
+
+set whichwrap+=lh
+
+" Use system clipboard
+set clipboard+=unnamed
+
+let mapleader = " "
+
+
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+nnoremap <esc><esc> :nohls<cr>
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+let g:WhichKeyDesc_leader = "<leader>ee Open file explorer"
+
+let g:WhichKeyDesc_comment = "<leader>c Comment line"
+
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>sv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>sh Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>sx Unsplit"
+
+
+let g:WhichKeyDesc_display = "<leader>x Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>xz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>xd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>xf Toggle full screen"
+
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fs Search for file content"
+let g:WhichKeyDesc_file_nav_replace_content = "<leader>fd Replace for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_find = "<leader>fc Find in current file"
+let g:WhichKeyDesc_file_replace = "<leader>fv Replace in current file"
+
+let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rr Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>ra Open refactorings list"
+
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
+
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
+let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
+let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
+
+
+"" Key mappings
+"" ========================================================
+
+" Tab navigation
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprev<CR>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+"" Leader commands
+"" ========================================================
+
+" Comment lines
+map <leader>c <action>(CommentByLineComment)
+map <leader>C <action>(CommentByBlockComment)
+
+" Jump around with easymotion
+map <leader>j <Plug>(easymotion-s)
+
+" Open NERDTree (use q to exit)
+map <leader>ee :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <leader>sv <Action>(SplitVertically)
+map <leader>sh <Action>(SplitHorizontally)
+map <leader>se <C-w>=
+map <leader>sx <Action>(Unsplit)
+
+" Display options
+map <leader>xd <action>(ToggleDistractionFreeMode)
+map <leader>xz <action>(ToggleZenMode)
+map <leader>xf <action>(ToggleFullScreen)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fs <action>(FindInPath)
+map <leader>fd <action>(ReplaceInPath)
+map <leader>fl <action>(RecentLocations)
+map <leader>fc <action>(Find)
+map <leader>fv <action>(Replace)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rr <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>ra <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+
+" Errors
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+
+" Redo
+map U <C-r>
+
+nmap <leader>* viwy \| :%s/<c-r>+//g<left><left>
+nmap <leader>$ viwy \| :%s/\<<c-r>+\>//g<left><left>
+nmap <leader>% viwy \| :/<c-r>+
+nmap <leader>ù viwy \| :\<<c-r>+\>
+
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
+
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+nnoremap <leader>p "_dP
+vnoremap <leader>p "_dP
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+nnoremap <C-s> :w<CR>
+
+map <S-k> <Action>(EditorDuplicateLines)
+map <A-j> <Action>(MoveLineDown)
+map <A-k> <Action>(MoveLineUp)
+
+map <C-g> <Action>(GotoLine)
