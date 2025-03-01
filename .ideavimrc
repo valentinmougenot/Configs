@@ -12,8 +12,6 @@ set hlsearch
 
 set visualbell
 
-set whichwrap+=lh
-
 " Use system clipboard
 set clipboard+=unnamed
 
@@ -25,12 +23,7 @@ let mapleader = " "
 
 set surround
 set highlightedyank
-set sneak
 set nerdtree
-
-" Easymotion settings
-set easymotion
-set notimeout
 
 nnoremap <esc><esc> :nohls<cr>
 
@@ -45,7 +38,7 @@ let g:WhichKeyDesc_leader = "<leader> Leader key"
 
 let g:WhichKeyDesc_leader = "<leader>ee Open file explorer"
 
-let g:WhichKeyDesc_comment = "<leader>c Comment line"
+let g:WhichKeyDesc_comment = "<leader>b Comment line"
 
 let g:WhichKeyDesc_fold = "<leader>z Folding"
 let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
@@ -120,11 +113,8 @@ nnoremap <C-j> <C-w>j
 "" ========================================================
 
 " Comment lines
-map <leader>c <action>(CommentByLineComment)
-map <leader>C <action>(CommentByBlockComment)
-
-" Jump around with easymotion
-map <leader>j <Plug>(easymotion-s)
+map <leader>b <action>(CommentByLineComment)
+map <leader>B <action>(CommentByBlockComment)
 
 " Open NERDTree (use q to exit)
 map <leader>ee :NERDTreeToggle<CR>
@@ -206,6 +196,8 @@ nnoremap <leader>p "_dP
 vnoremap <leader>p "_dP
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+nnoremap <leader>c "_c
+vnoremap <leader>c "_c
 
 nnoremap <C-s> :w<CR>
 
